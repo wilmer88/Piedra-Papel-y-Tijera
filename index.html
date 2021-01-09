@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>piedra papel o tijera</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      for (i = 0; i < 5; i++) {
+        wins = 0;
+        ties = 0;
+        loss = 0;
+
+        var playerAnswer = prompt("1 piedra, 2 papel, o 3 tijera");
+        console.log("this is player aswear ", playerAnswer);
+
+        var computerChoices = ["r", "p", "s"];
+
+        var computer = Math.floor(Math.random() * computerChoices.length);
+
+        var final = computerChoices[computer];
+        console.log(final);
+
+        if (playerAnswer === final) {
+          alert("its a tie");
+          ties++;
+        } else if (
+          (playerAnswer === "p" && final === "s") ||
+          (playerAnswer === "s" && final === "r") ||
+          (playerAnswer === "r" && final === "p")
+        ) {
+          alert("you lost");
+          loss++;
+        } else if (
+          (playerAnswer === "s" && final === "p") ||
+          (playerAnswer === "r" && final === "s") ||
+          (playerAnswer === "p" && final === "r")
+        ) {
+          alert("you win");
+          wins++;
+        } else {
+          alert("esa entrad no trabaja");
+        }
+      }
+
+      alert("wins:", wins, "loss:", loss, "ties:", ties);
+    </script>
+  </body>
+</html>
