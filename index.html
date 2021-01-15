@@ -14,15 +14,16 @@
   </head>
   <body>
     <script type="text/javascript">
-      for (i = 0; i < 5; i++) {
-        wins = 0;
-        ties = 0;
-        loss = 0;
+      wins = 0;
+      ties = 0;
+      loss = 0;
+      var computerChoices = ["r", "p", "s"];
 
-        var playerAnswer = prompt("1 piedra, 2 papel, o 3 tijera");
+      for (i = 0; i < 6; i++) {
+        var playerAnswer = prompt(
+          "Prsiona uno de  r, p, s \n Rocka-r \n Papel-p \n  tijera-s"
+        );
         console.log("this is player aswear ", playerAnswer);
-
-        var computerChoices = ["r", "p", "s"];
 
         var computer = Math.floor(Math.random() * computerChoices.length);
 
@@ -30,28 +31,30 @@
         console.log(final);
 
         if (playerAnswer === final) {
-          alert("its a tie");
+          alert("empate");
           ties++;
         } else if (
           (playerAnswer === "p" && final === "s") ||
           (playerAnswer === "s" && final === "r") ||
           (playerAnswer === "r" && final === "p")
         ) {
-          alert("you lost");
+          alert("perdistes");
           loss++;
         } else if (
           (playerAnswer === "s" && final === "p") ||
           (playerAnswer === "r" && final === "s") ||
           (playerAnswer === "p" && final === "r")
         ) {
-          alert("you win");
+          alert("ganastes");
           wins++;
         } else {
           alert("esa entrad no trabaja");
         }
       }
 
-      alert("wins:", wins, "loss:", loss, "ties:", ties);
+      alert(
+        "wins:" + wins + "\n your losses:" + loss + "\n games drawn:" + ties
+      );
     </script>
   </body>
 </html>
